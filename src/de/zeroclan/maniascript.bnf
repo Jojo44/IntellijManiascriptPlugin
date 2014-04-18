@@ -1,0 +1,20 @@
+{
+  parserClass="de.zeroclan.parser.ManiascriptParser"
+
+  extends="com.intellij.extapi.psi.ASTWrapperPsiElement"
+
+  psiClassPrefix="Maniascript"
+  psiImplClassSuffix="Impl"
+  psiPackage="de.zeroclan.psi"
+  psiImplPackage="de.zeroclan.psi.impl"
+
+  elementTypeHolderClass="de.zeroclan.psi.ManiascriptTypes"
+  elementTypeClass="de.zeroclan.psi.ManiascriptElementType"
+  tokenTypeClass="de.zeroclan.psi.ManiascriptTokenType"
+}
+
+maniascriptFile ::= item_*
+
+private item_ ::= (property|COMMENT|CRLF)
+
+property ::= (KEY? SEPARATOR VALUE?) | KEY
